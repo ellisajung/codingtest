@@ -55,3 +55,5 @@ def coke(a,b,n,answer=0):
     if n < a: return answer
     return coke(a,b, (n//a)*b + n%a, answer+(n//a)*b)
 print(coke(a,b,n))
+
+

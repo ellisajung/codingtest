@@ -2,6 +2,7 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/131705
 # 삼총사
 
+
 # 문제 설명
 # 한국중학교에 다니는 학생들은 각자 정수 번호를 갖고 있습니다. 
 # 이 학교 학생 3명의 정수 번호를 더했을 때 0이 되면 3명의 학생은 삼총사라고 합니다. 
@@ -22,30 +23,28 @@
 '''
 
 
-number = [-2, 3, 0, 2, -5]
+number=[-2, 3, 0, 2, -5]	# result=2
+# number=[-3, -2, -1, 0, 1, 2, 3]    # result=5
+# number=[-1, 1, -1, 1]	# result=0
+
+
+# from itertools import combinations
+
+# comb = list(combinations(number, 3))
+# print(len([a for a in comb if sum(a) == 0]))
+
+'''short'''
+# from itertools import combinations as comb
+# print(len([a for a in comb(number, 3) if sum(a) == 0]))
 
 from itertools import combinations
 
-answer=0
-for i in combinations(number,3):
-    if sum(i) == 0:
-        answer += 1
+count = 0
+for a in combinations(number, 3):
+    if sum(a) == 0:
+        count += 1
 
-print(answer)
+print(count)
 
 
-def solution(number):
-    answer=0
-    for i in combinations(number,3):
-        if sum(i) == 0:
-            answer += 1
-    return answer
-
-def solution2(number):
-    answer = 0
-    arr = []
-    for i in range(len(number)-2):
-        for j in range(i+1,len(number)-1):
-            for k in range(j+1,len(number)):
-                if number[i]+number[j]+number[k] == 0: answer +=1
-    return answer
+print(combinations(number, 3))
